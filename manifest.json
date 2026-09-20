@@ -1,6 +1,6 @@
 {
-  "previews": {
-    "_expiry-test": { "expires": "2000-01-01T00:00:00Z" }
-  },
-  "expired": {}
+  "previews": {},
+  "expired": {
+    "_expiry-test": "2000-01-01T00:00:00Z"
+  }
 }
