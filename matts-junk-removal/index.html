@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Matts Junk Removal | Hermantown, MN</title>
+<meta name="description" content="Junk removal &amp; hauling in Hermantown, MN. Call (218) 838-6646 for a quote.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Mono:wght@400;500&family=Inter:wght@400;500;700&family=Saira+Stencil+One&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #0e3a22;
+    --green-2: #14492b;
+    --cream: #f5f0e6;
+    --ink: #101512;
+    --orange: #ff5b1f;
+    --orange-dark: #e64a10;
+    --muted: #5d665f;
+    --display: "Anton", Impact, "Haettenschweiler", "Arial Narrow Bold", sans-serif;
+    --body: "Inter", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    --mono: "DM Mono", ui-monospace, "SF Mono", Menlo, monospace;
+    /* motion values taken from measured behavior of well-built templates */
+    --ease-out: cubic-bezier(0.33, 1, 0.68, 1);
+    --ease-std: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-ui: cubic-bezier(0.2, 0.6, 0.3, 1);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; font-family: var(--body); color: var(--ink); background: var(--cream); line-height: 1.5; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- motion primitives ---------- */
+  .rv { opacity: 0; transform: translateY(28px); transition: opacity 0.9s ease var(--d, 0s), transform 0.6s var(--ease-std) var(--d, 0s); }
+  .rv.in { opacity: 1; transform: none; }
+  .line { display: block; overflow: hidden; }
+  .line > span { display: block; transform: translateY(108%); transition: transform 0.9s var(--ease-ui) var(--d, 0s); }
+  .loaded .line > span { transform: none; }
+  html.static .rv, html.static .line > span { opacity: 1; transform: none; transition: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .rv, .line > span { opacity: 1; transform: none; transition: none; }
+    .marquee-track { animation: none !important; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* ---------- demo banner ---------- */
+  .demo { background: #fff1c9; color: #5a4600; font: 500 12px/1.4 var(--mono); text-align: center; padding: 8px 16px; letter-spacing: 0.02em; }
+
+  /* ---------- nav ---------- */
+  .nav { position: sticky; top: 0; z-index: 30; height: 68px; margin-bottom: -68px; background: transparent; transition: background-color 0.25s var(--ease-ui), box-shadow 0.25s var(--ease-ui); }
+  .nav.solid { background: rgba(245, 240, 230, 0.94); backdrop-filter: blur(8px); box-shadow: 0 1px 0 rgba(16, 21, 18, 0.12); }
+  .nav-in { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 68px; }
+  .brand { font-family: var(--display); font-size: 24px; letter-spacing: 0.02em; text-transform: uppercase; text-decoration: none; color: var(--cream); transition: color 0.25s var(--ease-ui); line-height: 1; }
+  .nav.solid .brand { color: var(--ink); }
+  .links { display: flex; gap: 28px; font: 500 12.5px var(--mono); letter-spacing: 0.06em; text-transform: uppercase; }
+  .links a { text-decoration: none; color: var(--cream); opacity: 0.85; transition: opacity 0.15s var(--ease-out), color 0.25s var(--ease-ui); }
+  .nav.solid .links a { color: var(--ink); }
+  .links a:hover { opacity: 1; }
+  .pill { display: inline-flex; align-items: center; gap: 10px; background: var(--orange); color: var(--ink); font: 700 14px var(--body); text-decoration: none; padding: 12px 20px; border-radius: 999px; transition: background-color 0.15s var(--ease-out), transform 0.25s var(--ease-ui); white-space: nowrap; }
+  .pill:hover { background: var(--orange-dark); }
+  .pill:active { transform: scale(0.97); }
+  .pill .arr { transition: transform 0.25s var(--ease-ui); }
+  .pill:hover .arr { transform: translateX(4px); }
+  .pill.ghost { background: transparent; color: var(--cream); box-shadow: inset 0 0 0 1.5px rgba(245, 240, 230, 0.55); }
+  .pill.ghost:hover { background: rgba(245, 240, 230, 0.12); }
+  .pill.big { font-size: 17px; padding: 17px 28px; }
+
+  /* ---------- hero ---------- */
+  .hero { position: relative; background: var(--green); color: var(--cream); min-height: min(92svh, 920px); display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; isolation: isolate; }
+  .hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background:
+      radial-gradient(900px 520px at 78% 18%, rgba(255, 91, 31, 0.20), transparent 60%),
+      radial-gradient(700px 500px at 8% 100%, rgba(255, 255, 255, 0.06), transparent 60%); }
+  .frame { position: absolute; inset: 84px 16px 16px; border: 1px solid rgba(245, 240, 230, 0.35); border-radius: 22px; pointer-events: none; }
+  .caps { position: absolute; top: 108px; left: 40px; right: 40px; display: flex; justify-content: space-between; gap: 16px; font: 400 12.5px/1.4 var(--mono); letter-spacing: 0.04em; text-transform: uppercase; opacity: 0.9; }
+  .hero .wrap { width: 100%; }
+  .hero-body { padding-bottom: 64px; padding-top: 180px; }
+  .h1 { font-family: var(--display); font-weight: 400; text-transform: uppercase; font-size: clamp(90px, 19vw, 275px); line-height: 0.86; letter-spacing: 0.005em; margin: 0; }
+  .h1 .dot { color: var(--orange); }
+  .hero-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 28px; flex-wrap: wrap; margin-top: 30px; }
+  .hero-row p { margin: 0; max-width: 520px; font-size: 18px; color: rgba(245, 240, 230, 0.88); }
+  .ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+  .chip { display: inline-flex; align-items: center; gap: 8px; font: 500 12.5px var(--mono); letter-spacing: 0.04em; text-transform: uppercase; border: 1px solid rgba(245, 240, 230, 0.4); border-radius: 999px; padding: 8px 14px; margin-top: 18px; }
+  .star { color: var(--orange); }
+
+  /* ---------- hero illustration ---------- */
+  .art { position: absolute; right: 3vw; bottom: 150px; width: min(41vw, 600px); z-index: 1; pointer-events: none; }
+  .art svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .truck { transform: translateX(115%); }
+  .loaded .truck { transform: none; transition: transform 1.3s var(--ease-ui) 0.25s; }
+  .rig { animation: bob 2.4s ease-in-out 1.7s infinite alternate; }
+  @keyframes bob { to { transform: translateY(-3px); } }
+  .wheel .spokes { transform-box: fill-box; transform-origin: center; }
+  .loaded .wheel .spokes { animation: roll 1.3s var(--ease-ui) 0.25s 1 both; }
+  @keyframes roll { from { transform: rotate(-900deg); } to { transform: rotate(0); } }
+  .junk > * { opacity: 0; transform: translateY(-26px); transition: opacity 0.5s ease, transform 0.6s var(--ease-std); }
+  .loaded .junk > * { opacity: 1; transform: none; }
+  .loaded .junk > *:nth-child(1) { transition-delay: 1.3s; }
+  .loaded .junk > *:nth-child(2) { transition-delay: 1.45s; }
+  .loaded .junk > *:nth-child(3) { transition-delay: 1.6s; }
+  .loaded .junk > *:nth-child(4) { transition-delay: 1.75s; }
+  .loaded .junk > *:nth-child(5) { transition-delay: 1.9s; }
+  .loaded .junk > *:nth-child(6) { transition-delay: 2.05s; }
+  html.static .truck, html.static .junk > * { transform: none; opacity: 1; transition: none; }
+  html.static .rig, html.static .wheel .spokes, html.static .badge-spin { animation: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .truck, .junk > * { transform: none; opacity: 1; transition: none; }
+    .rig, .wheel .spokes, .badge-spin { animation: none !important; }
+  }
+
+  /* ---------- brand mark ---------- */
+  .brand { display: inline-flex; align-items: center; gap: 10px; white-space: nowrap; }
+  @media (max-width: 860px) { .brand { font-size: 21px; gap: 8px; } .mark { width: 26px; height: 29px; } }
+  .mark { width: 30px; height: 33px; flex: none; overflow: visible; }
+  .mark .lid { fill: currentColor; transform-box: fill-box; transform-origin: 0% 100%; transition: transform 0.35s var(--ease-ui); }
+  .brand:hover .lid { transform: rotate(-24deg) translateY(-2px); }
+
+  /* ---------- toss the junk ---------- */
+  .toss-layer .toss { cursor: pointer; pointer-events: all; opacity: 0; transition: opacity 0.6s ease 1.9s; transform-box: fill-box; transform-origin: center; outline: none; }
+  .loaded .toss-layer .toss { opacity: 1; }
+  html.static .toss-layer .toss { opacity: 1; transition: none; }
+  .toss .bob { transform-box: fill-box; transform-origin: center; animation: float 3.2s ease-in-out infinite alternate; transition: filter 0.15s var(--ease-out); }
+  @keyframes float { to { transform: translateY(-9px) rotate(3deg); } }
+  .toss:hover .bob, .toss:focus-visible .bob { filter: drop-shadow(0 0 10px rgba(255, 91, 31, 0.9)); }
+  .squash { transform-box: fill-box; transform-origin: 50% 100%; }
+  .squash.hit { animation: squash 0.45s var(--ease-std); }
+  @keyframes squash { 0% { transform: none; } 30% { transform: scale(1.025, 0.95); } 65% { transform: scale(0.992, 1.018); } 100% { transform: none; } }
+  .toss-ui { pointer-events: auto; display: flex; align-items: center; justify-content: flex-end; gap: 12px; margin-top: 10px; font: 500 12.5px/1.3 var(--mono); letter-spacing: 0.05em; text-transform: uppercase; color: rgba(245, 240, 230, 0.85); }
+  .toss-ui button { font: inherit; letter-spacing: inherit; text-transform: inherit; color: var(--ink); background: var(--orange); border: 0; border-radius: 999px; padding: 6px 12px; cursor: pointer; transition: background-color 0.15s var(--ease-out); }
+  .toss-ui button:hover { background: var(--orange-dark); }
+  .toss-ui [hidden] { display: none; }
+  @media (prefers-reduced-motion: reduce) { .toss .bob, .squash.hit { animation: none !important; } .toss-layer .toss { opacity: 1; transition: none; } }
+  html.static .toss .bob { animation: none; }
+
+  /* ---------- hazard tape, stamp, mega wordmark ---------- */
+  .hazard { height: 16px; background: repeating-linear-gradient(-45deg, #ffd23f 0 16px, #101512 16px 32px); }
+  .step { position: relative; }
+  .stamp { position: absolute; top: 34px; right: 10px; font-family: "Saira Stencil One", var(--display); font-size: 28px; line-height: 1; letter-spacing: 0.04em; text-transform: uppercase; color: var(--orange); border: 3px solid var(--orange); border-radius: 8px; padding: 6px 12px 4px; opacity: 0; transform: rotate(-9deg) scale(1.9); transition: opacity 0.2s ease 0.6s, transform 0.45s var(--ease-std) 0.6s; pointer-events: none; }
+  .step.in .stamp { opacity: 0.95; transform: rotate(-9deg) scale(1); }
+  html.static .stamp { opacity: 0.95; transform: rotate(-9deg); transition: none; }
+  @media (prefers-reduced-motion: reduce) { .stamp { opacity: 0.95; transform: rotate(-9deg); transition: none; } }
+  .mega { font-family: var(--display); text-transform: uppercase; white-space: nowrap; font-size: min(15vw, 230px); line-height: 0.82; letter-spacing: 0.005em; color: rgba(245, 240, 230, 0.09); margin: 36px 0 0 -0.02em; user-select: none; overflow: hidden; transition: color 0.4s ease; }
+  footer:hover .mega { color: rgba(255, 91, 31, 0.5); }
+
+  /* ---------- service cards ---------- */
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 36px; }
+  .card { display: flex; flex-direction: column; gap: 22px; background: #fbf8f1; border: 1px solid rgba(16, 21, 18, 0.14); border-radius: 20px; padding: 26px 24px 24px; color: var(--ink); transition: background-color 0.15s var(--ease-out), color 0.15s var(--ease-out), transform 0.25s var(--ease-ui), border-color 0.15s var(--ease-out); }
+  .card svg { width: 64px; height: 64px; stroke: var(--orange); fill: none; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; transition: transform 0.25s var(--ease-ui); }
+  .card b { font-family: var(--display); font-weight: 400; text-transform: uppercase; font-size: 30px; line-height: 1; letter-spacing: 0.01em; }
+  .card:hover { background: var(--ink); color: var(--cream); border-color: var(--ink); transform: translateY(-5px); }
+  .card:hover svg { transform: rotate(-6deg) scale(1.06); }
+
+  /* ---------- marquee ---------- */
+  .marquee { background: var(--orange); color: var(--ink); overflow: hidden; border-block: 1px solid rgba(16, 21, 18, 0.9); }
+  .marquee-track { display: flex; width: max-content; animation: slide 32s linear infinite; }
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+  .marquee span { font-family: var(--display); text-transform: uppercase; font-size: clamp(30px, 5vw, 56px); padding: 14px 26px; white-space: nowrap; letter-spacing: 0.01em; }
+  .marquee span.sep { padding: 14px 0; opacity: 0.55; }
+  @keyframes slide { to { transform: translateX(-50%); } }
+
+  /* ---------- sections ---------- */
+  section { position: relative; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 10px; font: 500 12.5px var(--mono); letter-spacing: 0.06em; text-transform: uppercase; }
+  .eyebrow::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+  h2 { font-family: var(--display); font-weight: 400; text-transform: uppercase; font-size: clamp(48px, 9vw, 120px); line-height: 0.92; letter-spacing: 0.005em; margin: 14px 0 0; }
+  .sec { padding: 96px 0; }
+
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 56px; border-top: 1px solid var(--ink); }
+  .step { padding: 28px 28px 8px 0; border-right: 1px solid rgba(16, 21, 18, 0.25); margin-right: 28px; }
+  .step:last-child { border-right: 0; margin-right: 0; }
+  .num { font-family: var(--display); font-size: clamp(72px, 10vw, 140px); line-height: 1; color: var(--orange); }
+  .step h3 { margin: 6px 0 6px; font-size: 22px; letter-spacing: -0.01em; }
+  .step p { margin: 0; color: var(--muted); max-width: 320px; }
+
+  .split { display: grid; grid-template-columns: 1fr 1fr; min-height: 560px; }
+  .split .a { background: var(--orange); color: var(--ink); padding: 72px 6vw; display: flex; flex-direction: column; justify-content: space-between; gap: 40px; }
+  .split .b { background: var(--green-2); color: var(--cream); padding: 72px 6vw; display: flex; flex-direction: column; justify-content: space-between; gap: 40px; }
+  .bignum { font-family: var(--display); line-height: 0.85; font-size: clamp(140px, 24vw, 340px); }
+  .stars { font-size: 28px; letter-spacing: 6px; margin-top: 22px; }
+  .sub { font-size: 18px; max-width: 380px; margin: 26px 0 0; }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+  .tag { border: 1px solid currentColor; border-radius: 999px; padding: 9px 16px; font-weight: 600; font-size: 15px; transition: background-color 0.15s var(--ease-out), color 0.15s var(--ease-out); }
+  .tag:hover { background: var(--ink); color: var(--cream); }
+
+  .quote { background: var(--ink); color: var(--cream); }
+  .quote-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: start; }
+  .phone-big { display: inline-block; font-family: var(--display); font-size: clamp(44px, 7vw, 92px); line-height: 1; text-decoration: none; color: var(--orange); margin-top: 22px; transition: color 0.15s var(--ease-out); }
+  .phone-big:hover { color: #ff8a5c; }
+  form { display: grid; gap: 14px; }
+  label { display: grid; gap: 8px; font: 500 12.5px var(--mono); letter-spacing: 0.06em; text-transform: uppercase; }
+  input, textarea { font: 400 16px var(--body); color: var(--cream); background: transparent; border: 0; border-bottom: 1.5px solid rgba(245, 240, 230, 0.45); padding: 10px 0; outline: none; border-radius: 0; transition: border-color 0.15s var(--ease-out); width: 100%; }
+  input:focus, textarea:focus { border-color: var(--orange); }
+  textarea { min-height: 90px; resize: vertical; }
+  button.pill { border: 0; cursor: pointer; justify-self: start; }
+  #sent { display: none; font-size: 14px; background: rgba(245, 240, 230, 0.1); border-radius: 12px; padding: 12px 14px; }
+
+  .area { padding: 72px 0; }
+  .area h2 { font-size: clamp(40px, 7vw, 88px); }
+
+  footer { background: var(--ink); color: rgba(245, 240, 230, 0.75); padding: 40px 0 110px; font-size: 14px; border-top: 1px solid rgba(245, 240, 230, 0.15); }
+  footer a { color: var(--cream); }
+
+  .todo { font: 500 11px var(--mono); letter-spacing: 0.04em; text-transform: uppercase; background: #fff1c9; color: #5a4600; border: 1px dashed #d1b24a; border-radius: 6px; padding: 2px 7px; vertical-align: middle; margin-left: 6px; white-space: normal; }
+
+  .sticky-call { display: none; position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 40; background: var(--orange); color: var(--ink); text-align: center; text-decoration: none; font: 700 17px var(--body); padding: 16px; border-radius: 999px; box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3); }
+
+  @media (max-width: 860px) {
+    .links { display: none; }
+    .wrap { padding: 0 18px; }
+    .caps { left: 30px; right: 30px; top: 100px; flex-direction: column; gap: 4px; }
+    .hero-body { padding-top: 200px; padding-bottom: 44px; }
+    .frame { inset: 72px 10px 10px; }
+    .h1 { font-size: 36vw; }
+    .art { right: 5%; left: auto; top: 178px; bottom: auto; width: 86%; }
+    .hero-body { padding-top: 520px; }
+    .toss-ui { justify-content: flex-start; margin-top: 4px; }
+    .cards { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 560px) {
+    .cards { grid-template-columns: 1fr; gap: 12px; }
+    .card { flex-direction: row; align-items: center; gap: 18px; padding: 18px 20px; }
+    .card svg { width: 48px; height: 48px; flex: none; }
+    .card b { font-size: 26px; }
+    .steps { grid-template-columns: 1fr; }
+    .step { border-right: 0; margin-right: 0; border-bottom: 1px solid rgba(16, 21, 18, 0.25); padding-right: 0; }
+    .split { grid-template-columns: 1fr; min-height: 0; }
+    .split .a, .split .b { padding: 56px 24px; }
+    .quote-grid { grid-template-columns: 1fr; gap: 40px; }
+    .sec { padding: 68px 0; }
+    .sticky-call { display: block; }
+    .nav .pill { padding: 10px 14px; font-size: 13px; }
+  }
+
+:root{--green:#0e3a22;--green-2:#14492b;--cream:#f5f0e6;--orange:#ff5b1f;--orange-dark:#e64a10;--accent-ink:#ff5b1f}
+.hero::before{background:radial-gradient(900px 520px at 78% 18%,rgba(255,91,31,0.22),transparent 60%),radial-gradient(700px 500px at 8% 100%,rgba(255,255,255,.06),transparent 60%)}
+.num,.eyebrow+h2 .x{color:var(--accent-ink)} .card svg{stroke:var(--accent-ink)} .stamp{color:var(--accent-ink);border-color:var(--accent-ink)}
+.phone-big:hover{color:#ff8a5c} footer:hover .mega{color:rgba(255,91,31,0.5)}
+.hazard{background:repeating-linear-gradient(-45deg,#ffd23f 0 16px,#101512 16px 32px)}
+.brand span{overflow:hidden;text-overflow:ellipsis;max-width:46vw}
+.h1{font-size:clamp(64px,12.4vw,275px)}
+.phonebig{font-size:clamp(36px,5.4vw,84px)!important;line-height:1!important;white-space:nowrap} .citybig{font-size:clamp(70px,13vw,190px)!important}
+@media(max-width:860px){.h1{font-size:22.7vw} .phonebig{font-size:11.2vw!important} .citybig{font-size:24vw!important}}
+.art-generic .gi{animation:float 3.2s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:center}
+.art-wash svg{pointer-events:auto;cursor:pointer}
+.art-wash .wash-rect{transform-box:fill-box;transform-origin:0 50%;transform:scaleX(0)}
+.art-wash .wand{transform:translateX(60px);opacity:0}
+.art-wash.run .wash-rect{animation:sweep 2.8s cubic-bezier(.4,0,.2,1) forwards}
+.art-wash.run .wand{animation:wandmove 2.8s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes sweep{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes wandmove{0%{transform:translateX(60px);opacity:1}92%{opacity:1}100%{transform:translateX(640px);opacity:0}}
+html.static .art-wash .wash-rect{animation:none;transform:scaleX(.55)} html.static .art-wash .wand{animation:none;transform:translateX(379px);opacity:1} html.static .art-generic .gi{animation:none}
+@media(prefers-reduced-motion:reduce){.art-wash .wash-rect{animation:none!important;transform:none} .art-wash .wand{display:none} .art-generic .gi{animation:none}}
+</style>
+</head>
+<body>
+<div class="demo">Design preview made for Matts Junk Removal. Not a live site. This preview takes itself down on Tuesday, September 29. <span class="todo">Confirm</span> tags mark items that need the owner&#39;s input.</div>
+<nav class="nav" id="nav"><div class="wrap nav-in">
+  <a class="brand" href="#top" aria-label="Matts Junk Removal, home"><svg class="mark" viewBox="0 0 40 44" aria-hidden="true">
+        <path d="M9 14L11 40Q11 42 13 42H27Q29 42 29 40L31 14Z" fill="#ff5b1f"/>
+        <circle cx="16.500" cy="25" r="2" fill="#101512"/><circle cx="23.500" cy="25" r="2" fill="#101512"/>
+        <path d="M15.500 30Q20 34.500 24.500 30" stroke="#101512" stroke-width="2.200" fill="none" stroke-linecap="round"/>
+        <g class="lid"><rect x="5" y="9" width="30" height="6" rx="3"/><rect x="15" y="4.500" width="10" height="5" rx="2.500"/></g>
+      </svg><span>Matts Junk Removal</span></a>
+  <div class="links"><a href="#how">How it works</a><a href="#services">What we do</a><a href="#reviews">Reviews</a><a href="#quote">Quote</a></div>
+  <a class="pill" href="tel:+12188386646">Call (218) 838-6646 <span class="arr">&rarr;</span></a>
+</div></nav>
+<header class="hero" id="top">
+  <div class="frame"></div>
+  <div class="caps"><span>Junk removal &amp; hauling</span><span>Hermantown, MN</span></div>
+  <div class="art" aria-hidden="true">
+    <svg viewBox="0 -130 700 590" role="group" aria-label="Illustration of a junk removal truck with junk you can toss in" focusable="false">
+      <ellipse cx="350" cy="390" rx="330" ry="11" fill="#000" opacity=".28"/>
+      <g class="truck"><g class="rig"><g class="squash">
+        <path d="M6 250h34M0 282h48M14 314h28" stroke="#f5f0e6" stroke-width="4" stroke-linecap="round" opacity=".35"/>
+        <g class="junk">
+          <!-- couch -->
+          <g>
+            <rect x="72" y="206" width="170" height="52" rx="16" fill="#d8c6a2"/>
+            <rect x="66" y="244" width="182" height="52" rx="14" fill="#e6d7b8"/>
+            <rect x="58" y="232" width="32" height="66" rx="14" fill="#cbb78f"/>
+            <rect x="226" y="232" width="32" height="66" rx="14" fill="#cbb78f"/>
+            <path d="M157 250V296" stroke="#b8a37a" stroke-width="3"/>
+          </g>
+          <!-- lamp -->
+          <g>
+            <rect x="219" y="132" width="4" height="80" fill="#f5f0e6"/>
+            <polygon points="196,100 246,100 238,134 204,134" fill="#ff5b1f"/>
+          </g>
+          <!-- mattress -->
+          <g><g transform="rotate(7 375 196)">
+            <rect x="336" y="96" width="78" height="200" rx="12" fill="#f5f0e6"/>
+            <rect x="344" y="104" width="62" height="184" rx="8" fill="none" stroke="#cfc6b2" stroke-width="2" stroke-dasharray="5 4"/>
+            <circle cx="375" cy="150" r="3" fill="#cfc6b2"/><circle cx="375" cy="200" r="3" fill="#cfc6b2"/><circle cx="375" cy="250" r="3" fill="#cfc6b2"/>
+          </g></g>
+          <!-- boxes -->
+          <g>
+            <rect x="262" y="232" width="66" height="64" fill="#c48a4b"/>
+            <rect x="262" y="250" width="66" height="8" fill="#dcae74"/>
+            <rect x="272" y="190" width="46" height="44" fill="#b27a3e"/>
+            <rect x="272" y="204" width="46" height="6" fill="#d19d63"/>
+          </g>
+          <!-- bags -->
+          <g>
+            <ellipse cx="104" cy="190" rx="27" ry="30" fill="#3c4a42"/>
+            <path d="M96 162q8-14 16 0" fill="#3c4a42"/>
+            <path d="M86 184q4-10 14-12" stroke="#6b7a71" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <ellipse cx="164" cy="194" rx="23" ry="26" fill="#4a5a51"/>
+            <path d="M157 170q7-12 14 0" fill="#4a5a51"/>
+            <path d="M148 190q3-8 11-10" stroke="#7d8d84" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </g>
+        </g>
+        <!-- stake-bed posts and rails (in front of the pile) -->
+        <rect x="40" y="176" width="9" height="132" fill="#101512"/>
+        <rect x="418" y="176" width="9" height="132" fill="#101512"/>
+        <rect x="40" y="258" width="387" height="7" fill="#101512"/>
+        <rect x="40" y="290" width="387" height="7" fill="#101512"/>
+        <!-- deck + cab -->
+        <rect x="40" y="308" width="474" height="24" rx="6" fill="#101512"/>
+        <rect x="420" y="118" width="10" height="122" rx="5" fill="#26332b"/>
+        <polygon points="432,166 528,166 600,246 618,252 618,332 432,332" fill="#ff5b1f"/>
+        <polygon points="447,180 521,180 574,246 447,246" fill="#cfe3d5"/>
+        <path d="M492 246V332" stroke="#000" stroke-opacity=".25" stroke-width="3"/>
+        <rect x="470" y="268" width="20" height="6" rx="3" fill="#101512"/>
+        <rect x="606" y="270" width="12" height="18" rx="3" fill="#ffd23f"/>
+        <rect x="604" y="316" width="22" height="14" rx="4" fill="#101512"/>
+        <rect x="428" y="196" width="6" height="30" rx="3" fill="#101512"/>
+        <!-- wheels -->
+        <g class="wheel">
+          <circle cx="150" cy="340" r="40" fill="#0a0e0c"/><circle cx="150" cy="340" r="22" fill="#f5f0e6"/>
+          <g class="spokes"><rect x="148" y="326" width="4" height="28" fill="#101512"/><rect x="136" y="338" width="28" height="4" fill="#101512"/></g>
+          <circle cx="150" cy="340" r="5" fill="#101512"/>
+        </g>
+        <g class="wheel">
+          <circle cx="545" cy="340" r="40" fill="#0a0e0c"/><circle cx="545" cy="340" r="22" fill="#f5f0e6"/>
+          <g class="spokes"><rect x="543" y="326" width="4" height="28" fill="#101512"/><rect x="531" y="338" width="28" height="4" fill="#101512"/></g>
+          <circle cx="545" cy="340" r="5" fill="#101512"/>
+        </g>
+      </g></g></g>
+      <g class="toss-layer">
+        <g transform="translate(95 -62)"><g class="toss" data-x="95" data-y="-62" role="button" tabindex="0" aria-label="Toss the armchair into the truck"><circle r="46" fill="transparent"/><g class="bob" style="animation-duration:3.4s;animation-delay:-1.2s">
+          <rect x="-24" y="-36" width="48" height="40" rx="12" fill="#c9b58a"/><rect x="-32" y="-8" width="64" height="28" rx="10" fill="#e0d0ae"/>
+          <rect x="-38" y="-16" width="16" height="38" rx="8" fill="#b9a577"/><rect x="22" y="-16" width="16" height="38" rx="8" fill="#b9a577"/>
+          <rect x="-28" y="20" width="6" height="12" rx="2" fill="#7a6a48"/><rect x="22" y="20" width="6" height="12" rx="2" fill="#7a6a48"/>
+        </g></g></g>
+        <g transform="translate(250 -72)"><g class="toss" data-x="250" data-y="-72" role="button" tabindex="0" aria-label="Toss the tire into the truck"><circle r="46" fill="transparent"/><g class="bob" style="animation-duration:2.9s;animation-delay:-0.4s">
+          <circle r="32" fill="#1a231d" stroke="#5b6b62" stroke-width="5"/><circle r="15" fill="#f5f0e6"/><circle r="5" fill="#101512"/>
+        </g></g></g>
+        <g transform="translate(410 -58)"><g class="toss" data-x="410" data-y="-58" role="button" tabindex="0" aria-label="Toss the box into the truck"><circle r="46" fill="transparent"/><g class="bob" style="animation-duration:3.7s;animation-delay:-2s">
+          <path d="M-30 -26L-18 -36H18L30 -26Z" fill="#b27a3e"/><rect x="-30" y="-26" width="60" height="52" fill="#c48a4b"/><rect x="-30" y="-5" width="60" height="9" fill="#dcae74"/>
+        </g></g></g>
+        <g transform="translate(560 -68)"><g class="toss" data-x="560" data-y="-68" role="button" tabindex="0" aria-label="Toss the trash bag into the truck"><circle r="46" fill="transparent"/><g class="bob" style="animation-duration:3.1s;animation-delay:-0.9s">
+          <ellipse cx="0" cy="4" rx="28" ry="30" fill="#4a5a51"/><path d="M-9 -24Q0 -40 9 -24Q0 -19 -9 -24Z" fill="#4a5a51"/>
+          <path d="M-17 -2Q-14 -14 -3 -17" stroke="#8da093" stroke-width="3" fill="none" stroke-linecap="round"/>
+        </g></g></g>
+      </g>
+    </svg>
+    <div class="toss-ui" aria-live="polite"><span id="tossMsg">Tap the junk to toss it in</span><button type="button" id="tossReset" hidden>&#8634; Again</button></div>
+  </div>
+  <div class="wrap hero-body">
+    <h1 class="h1" aria-label="Matts Junk Removal"><span class="line"><span style="--d:0.05s">Matts</span></span><span class="line"><span style="--d:0.18s">Junk</span></span><span class="line"><span style="--d:0.31s">Removal<span class="dot">.</span></span></span></h1>
+    <div class="hero-row">
+      <div class="rv" style="--d:.5s"><p>Call for a quote. We haul it away so you don&#x27;t have to.</p><div class="chip"><span class="star">&#9733;</span> 5.0 on Google &middot; 30 reviews</div></div>
+      <div class="ctas rv" style="--d:.65s"><a class="pill big" href="tel:+12188386646">Call for a quote <span class="arr">&rarr;</span></a><a class="pill big ghost" href="#quote">Request online</a></div>
+    </div>
+  </div>
+</header>
+<div class="hazard" aria-hidden="true"></div>
+<div class="marquee" aria-hidden="true"><div class="marquee-track"><span>Hauling</span><span class="sep">&#10022;</span><span>Delivery</span><span class="sep">&#10022;</span><span>Space cleanouts</span><span class="sep">&#10022;</span><span>Furniture &amp; appliances</span><span class="sep">&#10022;</span><span>Construction debris</span><span class="sep">&#10022;</span><span>Yard waste</span><span class="sep">&#10022;</span><span>Hauling</span><span class="sep">&#10022;</span><span>Delivery</span><span class="sep">&#10022;</span><span>Space cleanouts</span><span class="sep">&#10022;</span><span>Furniture &amp; appliances</span><span class="sep">&#10022;</span><span>Construction debris</span><span class="sep">&#10022;</span><span>Yard waste</span><span class="sep">&#10022;</span></div></div>
+<section class="sec" id="how"><div class="wrap">
+  <div class="eyebrow rv">How it works <span class="todo">Confirm process</span></div>
+  <h2 class="rv" style="--d:.08s">Three steps.<br>That's it.</h2>
+  <div class="steps">
+    <div class="step rv" style="--d:.1s"><div class="num">01</div><h3>Call or send a request</h3><p>Tell us what you need and where you are.</p></div>
+    <div class="step rv" style="--d:.22s"><div class="num">02</div><h3>Get your quote</h3><p>You get a price before we start.</p></div>
+    <div class="step rv" style="--d:.34s"><div class="stamp" aria-hidden="true">Trashed</div><div class="num">03</div><h3>We get it done</h3><p>We handle the work so you don't have to.</p></div>
+  </div>
+</div></section>
+<section class="sec" id="services" style="padding-top:0"><div class="wrap">
+  <div class="eyebrow rv">What we do</div>
+  <div class="cards"><div class="card rv" style="--d:0.05s"><svg viewBox="0 0 48 48"><path d="M3 12h28v22H3zM31 20h8l6 8v6H31zM12 38a4 4 0 1 0 8 0a4 4 0 1 0-8 0M34 38a4 4 0 1 0 8 0a4 4 0 1 0-8 0"/></svg><b>Hauling</b></div><div class="card rv" style="--d:0.12s"><svg viewBox="0 0 48 48"><path d="M6 26h17v15H6zM25 26h17v15H25zM15 10h17v15H15zM6 32h17M25 32h17M15 16h17"/></svg><b>Delivery</b></div><div class="card rv" style="--d:0.19s"><svg viewBox="0 0 48 48"><path d="M5 23L24 7l19 16M11 20v21h26V20M20 41V29h8v12"/></svg><b>Space cleanouts</b></div><div class="card rv" style="--d:0.05s"><svg viewBox="0 0 48 48"><path d="M8 26v-6a6 6 0 0 1 6-6h20a6 6 0 0 1 6 6v6M4 30a4 4 0 0 1 8 0v3h24v-3a4 4 0 0 1 8 0v8H4zM10 38v4M38 38v4"/></svg><b>Furniture &amp; appliances</b></div><div class="card rv" style="--d:0.12s"><svg viewBox="0 0 48 48"><path d="M5 12h38v9H5zM5 21h19v9H5zM24 21h19v9H24zM5 30h38v9H5z"/></svg><b>Construction debris</b></div><div class="card rv" style="--d:0.19s"><svg viewBox="0 0 48 48"><path d="M24 5c9 6 13 13 6 21-2 3-6 5-6 5s-4-2-6-5c-7-8-3-15 6-21zM24 31v12M24 24l5-5"/></svg><b>Yard waste</b></div></div>
+</div></section>
+<section class="split" id="reviews"><div class="a"><div class="eyebrow rv">Reviews</div><div><div class="bignum rv" style="--d:.1s"><span data-count="5.0" data-dec="1">5.0</span></div><div class="stars rv" style="--d:.2s" aria-label="rated 5.0 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div></div></div>
+  <div class="b"><div class="eyebrow rv">On Google</div><div><div class="bignum rv" style="--d:.15s"><span data-count="30" data-dec="0">30</span></div><p class="sub rv" style="--d:.25s">Google reviews. <span class="todo">Count as of Sep 2026: refresh before launch</span></p></div></div></section>
+<section class="sec quote" id="quote"><div class="wrap quote-grid">
+  <div><div class="eyebrow rv">Get a quote</div><h2 class="rv" style="--d:.08s">Ready when<br>you are.</h2><a class="phone-big rv" style="--d:.16s" href="tel:+12188386646">(218) 838-6646</a></div>
+  <form id="quote-form" class="rv" style="--d:.2s">
+    <label>Name <input name="name" autocomplete="name" required></label>
+    <label>Phone <input name="phone" type="tel" autocomplete="tel" required></label>
+    <label>What do you need done? <textarea name="details"></textarea></label>
+    <button class="pill big" type="submit">Request my quote <span class="arr">&rarr;</span></button>
+    <div id="sent">Demo only: this preview form doesn't send anything. On the live site it would deliver requests straight to the owner's phone and email.</div>
+  </form>
+</div></section>
+<section class="area"><div class="wrap"><div class="eyebrow rv">Service area <span class="todo">Confirm towns served</span></div><h2 class="rv" style="--d:.08s">Serving Hermantown</h2></div></section>
+<div class="hazard" aria-hidden="true"></div>
+<footer><div class="wrap">
+  <strong style="color:var(--cream)">Matts Junk Removal</strong><br>Hermantown, MN &middot; <a href="tel:+12188386646">(218) 838-6646</a><br>
+  <span class="todo" style="margin-left:0">Confirm license / insurance details before adding any claims</span>
+  <div class="mega" aria-hidden="true">Matts Junk Removal.</div>
+</div></footer>
+<a class="sticky-call" href="tel:+12188386646">Tap to call (218) 838-6646</a>
+<script>
+(function () {
+  var root = document.documentElement;
+  if (location.hash === '#static') root.classList.add('static');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches || root.classList.contains('static');
+
+  // hero line reveal on load
+  requestAnimationFrame(function () { requestAnimationFrame(function () { document.body.classList.add('loaded'); }); });
+
+  // scroll reveal
+  var rv = document.querySelectorAll('.rv');
+  if ('IntersectionObserver' in window && !reduce) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.15, rootMargin: '0px 0px -6% 0px' });
+    rv.forEach(function (el) { io.observe(el); });
+  } else {
+    rv.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  // count-up (final values are already in the markup, so no-JS shows correct numbers)
+  var counters = document.querySelectorAll('[data-count]');
+  function run(el) {
+    var target = parseFloat(el.dataset.count), dec = parseInt(el.dataset.dec || '0', 10), t0 = null, dur = 1300;
+    function tick(t) {
+      if (!t0) t0 = t;
+      var p = Math.min((t - t0) / dur, 1), eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = (target * eased).toFixed(dec);
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  if ('IntersectionObserver' in window && !reduce) {
+    var co = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { run(e.target); co.unobserve(e.target); } });
+    }, { threshold: 0.6 });
+    counters.forEach(function (c) { co.observe(c); });
+  }
+
+  // nav turns solid after scrolling past the top of the hero
+  var nav = document.getElementById('nav');
+  function onScroll() { nav.classList.toggle('solid', window.scrollY > window.innerHeight * 0.6); }
+  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  // toss the junk into the truck
+  (function () {
+    var items = Array.prototype.slice.call(document.querySelectorAll('.toss'));
+    var msg = document.getElementById('tossMsg'), resetBtn = document.getElementById('tossReset'), squash = document.querySelector('.squash');
+    if (!items.length || !msg) return;
+    var START = msg.textContent, TARGET = { x: 240, y: 262 }, done = 0;
+    var sleep = function (ms) { return new Promise(function (r) { setTimeout(r, ms); }); };
+    var noMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function toss(el) {
+      if (el.dataset.done) return;
+      el.dataset.done = '1';
+      var dx = TARGET.x - (+el.dataset.x), dy = TARGET.y - (+el.dataset.y), anim = null;
+      if (el.animate && !noMotion) {
+        anim = el.animate([
+          { transform: 'translate(0px,0px) rotate(0deg) scale(1)' },
+          { transform: 'translate(' + dx * 0.5 + 'px,' + (dy * 0.5 - 90) + 'px) rotate(200deg) scale(1.05)', offset: 0.5 },
+          { transform: 'translate(' + dx + 'px,' + dy + 'px) rotate(340deg) scale(0.55)' }
+        ], { duration: 850, easing: 'cubic-bezier(0.35, 0.1, 0.6, 1)', fill: 'forwards' });
+      }
+      // the timeout is a fallback so the counter still advances if the browser throttles animations
+      Promise.race([anim ? anim.finished.catch(function () {}) : Promise.resolve(), sleep(noMotion ? 0 : 1300)]).then(function () {
+        el.style.visibility = 'hidden';
+        done++;
+        if (squash && !noMotion) { squash.classList.remove('hit'); void squash.getBoundingClientRect(); squash.classList.add('hit'); }
+        msg.textContent = done < items.length ? 'Tossed ' + done + ' of ' + items.length : "That's how it's done. Call us for the rest.";
+        if (done === items.length) resetBtn.hidden = false;
+      });
+    }
+    items.forEach(function (el) {
+      el.addEventListener('click', function () { toss(el); });
+      el.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toss(el); } });
+    });
+    resetBtn.addEventListener('click', function () {
+      items.forEach(function (el) { el.getAnimations().forEach(function (a) { a.cancel(); }); el.style.visibility = ''; delete el.dataset.done; });
+      done = 0; msg.textContent = START; resetBtn.hidden = true;
+    });
+  })();
+
+  // demo form
+  document.getElementById('quote-form').addEventListener('submit', function (e) {
+    e.preventDefault(); document.getElementById('sent').style.display = 'block';
+  });
+})();
+
+(function(){var art=document.querySelector('.art-wash');if(!art)return;var msg=document.getElementById('washMsg'),btn=document.getElementById('washBtn');
+function run(){art.classList.remove('run');void art.getBoundingClientRect();art.classList.add('run');if(msg)msg.textContent='Washing...';setTimeout(function(){if(msg)msg.textContent='Squeaky clean. Tap the wall to wash it again.';},3300);}
+if(!document.documentElement.classList.contains('static'))setTimeout(run,1400);
+art.querySelector('svg').addEventListener('click',run);if(btn)btn.addEventListener('click',run);})();
+
+(function(){var exp=new Date('2026-09-30T04:40:43Z');if(Date.now()>exp.getTime()){document.body.innerHTML='<div style="font:17px/1.55 system-ui,sans-serif;display:grid;place-items:center;min-height:100vh;text-align:center;padding:24px"><div><h1 style="font-size:28px;margin:0 0 10px">This design preview has been taken down.</h1><p>Previews expire automatically after about a week. Reply to the email it came with if you would like it put back up.</p></div></div>';}})();
+</script>
+</body>
+</html>
